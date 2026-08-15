@@ -1,14 +1,19 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cinzel_Decorative, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
+import Footer from "./commons/footer";
+import Header from "./commons/header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+
+const cinzelDecorative = Cinzel_Decorative({
+  weight: ["400", "700"], 
   subsets: ["latin"],
+  variable: "--font-cinzel-decorative",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const cormorantGaramond = Cormorant_Garamond({
+  weight: ["400", "700"],
   subsets: ["latin"],
+  variable: "--font-cormorant-garamond",
 });
 
 export const metadata = {
@@ -18,8 +23,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${cinzelDecorative.variable} ${cormorantGaramond.variable}`}>
+      <body>
+
+      <Header />
+        {children}
+        <Footer />
+        </body>
     </html>
   );
 }

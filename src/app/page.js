@@ -1,66 +1,76 @@
+'use client';
 import Image from "next/image";
 import styles from "./page.module.css";
+import Link from 'next/link';
+
+
+import { useState, useEffect } from 'react';
 
 export default function Home() {
+
+
+
+  const [data, setData] = useState([])
+  const [error, hasError] = useState(false);
+
+  useEffect(() => {
+
+    // getData();
+
+  }, []);
+
+
+
+  async function getData() {
+
+    try {
+      let response = await fetch('http://localhost:5000/api/data/get-info')
+
+      const result = await response.json();
+      console.log(result)
+      if (result.status = 'Success') {
+        setData(result.data)
+      }
+
+    } catch {
+      hasError(true)
+    }
+
+  }
+
+
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="page">
+
+      <div className={styles.hero}>
+        <p className="subtitle">Fauna si flora</p>
+        <p className="title">Cartea micii vrajitoare</p>
+        <p className={`${styles.description} highlight`}> Tot ce trebuie sa stii despre duhurile naturii, de la fiintele vazduhului la cele mai micute plante. Afla semnele care prezic viitorul, intelege trecutul si descopera prezentul.
+        </p>
+
+        <a className="btn-default" href="/about">Vezi mai mult</a>
+      </div>
+
+       <div class="divider">🕮</div>
+
+       <div className={styles.categories}>
+        <div className="card column">
+          <p className="card-title">Animale</p>
+          <p>Despre animale si comportamentul lor. Ce reprezinta fiecare, unde le poti intalni si care este rolul fiecaruia in natura</p>
+          <Link href="/animale" className="link-default">Vezi animale</Link>
+        
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+         <div className="card column">
+          <p className="card-title">Plante</p>
+          <p>Descopera semnificatia fiecaree plante, la ce este buna fiecare si cum le poti folosi in potiuni.</p>
+          <Link href="/plante" className="link-default">Vezi plante</Link>
+        
         </div>
-      </main>
+       </div>
+
+
     </div>
   );
 }
