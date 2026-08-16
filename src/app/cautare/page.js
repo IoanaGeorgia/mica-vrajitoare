@@ -1,7 +1,7 @@
 'use client'
 import Gallery from "../gallery/page";
 import { plantData, animalData } from "../mockData";
-import { useEffect, useState } from "react";
+import { Suspense } from "react";
 let allItems = [...plantData, ...animalData]
 
 export default function CautarePage() {
@@ -13,9 +13,11 @@ export default function CautarePage() {
 
 
   return (
+     <Suspense fallback={<div className="no-data">Se încarca...</div>}>
     <Gallery
       pageDesc={pageDesc}
       itemData={allItems}
     />
+    </Suspense>
   );
 }
