@@ -21,4 +21,5 @@
     gap:20px;
     align-items: stretch;
     justify-content: center;
+    flex-wrap: wrap;
 }

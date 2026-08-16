@@ -52,7 +52,7 @@ useEffect(() => {
       </div>
 
       <div className="bookmark-wrapper">
-        <button title="Bookmark this page" onClick={() => bookmarkPage()} aria-label="Bookmark this page">{isBookmark ? "⛉" : "⛊"}</button>
+        <button title="Bookmark this page" onClick={() => bookmarkPage()} aria-label="Bookmark this page">{isBookmark ? "⛊" : "⛉"}</button>
       </div>
 
       <div className="content">
@@ -72,7 +72,7 @@ useEffect(() => {
 
         <div className="tags">
           {item.categories?.map((tag, index) => (
-            <Link href="#" className="btn-default" key={index}>{tag}</Link>
+            <Link href={`/cautare?search=${encodeURIComponent(tag)}`} className="btn-default" key={index}>{tag}</Link>
           ))}
 
         </div>

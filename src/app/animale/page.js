@@ -10,7 +10,6 @@ export default function AnimalePage() {
     <Gallery
       pageDesc={pageDesc}
       itemData={animalData} 
-      linkHref="/animale" 
     />
   );
 }

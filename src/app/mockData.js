@@ -4,7 +4,7 @@ export const animalData = [
     scientific_title: "Papilio machaon",
     site_slug:"fluturele-coada-randunicii",
     categories: ['fluture', 'natura', 'protectie', 'soare'],
-    type: "animal",
+    type: "animale",
     image: "https://res-console.cloudinary.com/umzibuwc/thumbnails/v1/image/upload/v1786791793/Y29hZGEtcmFuZHVuaWNpaQ==/drilldown",
     text: `
       <p>Fluturele Coada Rândunicii este una dintre cele mai spectaculoase creaturi ale Europei și Asiei, un mesager al luminii care împodobește pajiștile însorite, grădinile și zonele montane din primăvară până la sfârșitul verii. Cu aripile sale galbene de chihlimbar, brăzdate de linii negre și ornate cu ochișori de un albastru regal și roșu rubiniu, prezența sa în natură este întotdeauna considerată o binecuvântare dinfinită.</p>
@@ -29,7 +29,7 @@ export const animalData = [
     scientific_title: "Vanessa atalanta",
     site_slug:"fluturele-amiral",
     categories: ['fluture', 'natura', 'protectie'],
-    type: "animal",
+    type: "animale",
     image: "https://res-console.cloudinary.com/umzibuwc/thumbnails/v1/image/upload/v1786791793/Zmx1dHVyZWxlX2FtaXJhbA==/drilldown",
     text: `
       <p>Fluturele Amiral (sau Amiralul Roșu) este unul dintre cei mai fascinanți și misterioși fluturi migratori, ușor de recunoscut după aripile sale catifelate de un negru adânc, traversate de benzi hipnotice de un roșu-portocaliu aprins și picurate cu pete albe ca zăpada. Poate fi întâlnit de primăvara devreme până târziu în toamnă, traversând păduri umbroase, livezi, dar și grădini mistice din întreaga lume.</p>
@@ -54,7 +54,7 @@ export const animalData = [
   scientific_title: "Pieris brassicae",
   site_slug:"fluturele-alb-al-verzei",
   categories: ["fluture", "natura", "luna", "protectie"],
-  type: "animal",
+  type: "animale",
   image: "https://res.cloudinary.com/umzibuwc/image/upload/v1786791793/fluturele_alb_al_verzei.jpg",
   text: `
     <p>Fluturele Alb al Verzei este unul dintre cei mai răspândiți și familiari fluturi ai Europei, zburând sprinten prin grădini, pajiști și peisaje rurale de primăvara devreme până la sfârșitul toamnei. Cu aripile sale de un alb imaculat, decorate cu vârfuri negre și pete întunecate (două la femele și una la masculi), prezența sa diafană pare să aducă o atingere de puritate și liniște în mijlocul verii.</p>
@@ -79,7 +79,7 @@ export const animalData = [
   scientific_title: "Phengaris arion",
   site_slug:"fluturele-marele-albastru",
   categories: ["fluture", "natura", "magia-apei", "iluzie", "prevestiri"],
-  type: "animal",
+  type: "animale",
   image: "https://res-console.cloudinary.com/umzibuwc/thumbnails/v1/image/upload/v1786797872/bWFyZWxlLWFsYmFzdHJ1/drilldown",
   text: `
     <p>Fluturele Marele Albastru este o creatură legendară a pajiștilor uscate și a colinelor însorite, fiind cel mai mare și mai maiestuos reprezentant al familiei sale. Cu aripile sale de un albastru Cobalt intens, stropite cu puncte negre specifice și o margine întunecată de catifea, zborul său din lunile de vară (iunie-iulie) pare o sclipire din tărâmul zânelor sau o picătură de cer căzută pe pământ.</p>
@@ -108,7 +108,7 @@ export const plantData = [
     scientific_title: "Antirrhinum majus",
     site_slug: "gura-leului",
     categories: ["planta", "protectie", "adevar", "curaj"],
-    type: "planta",
+    type: "plante",
     image: "https://res-console.cloudinary.com/umzibuwc/thumbnails/v1/image/upload/v1786804049/Z3VyYS1sZXVsdWk=/drilldown",
     text: `
       <p>Gura Leului este o plantă fascinantă și plină de personalitate, venerată din vremuri străvechi pentru florile sale cu formă neobișnuită ce amintesc de fălcile unei fiare nobile. Dacă strângi ușor corola pe lateral, floarea își deschide „gura” dezvăluind un interior secret, iar când îi dai drumul, se închide ferm la loc, ca un paznic fidel al grădinii.</p>
@@ -131,7 +131,7 @@ export const plantData = [
     scientific_title: "Nicotiana alata",
     site_slug: "regina-noptii",
     categories: ["planta", "luna", "mister", "intuitie"],
-    type: "planta",
+    type: "plante",
     image: "https://res-console.cloudinary.com/umzibuwc/thumbnails/v1/image/upload/v1786804049/cmVnaW5hLW5vcHRpaQ==/drilldown",
     text: `
       <p>Regina Nopții este o plantă mistică și profund hipnotică, celebră pentru parfumul său intens și narcotic ce umple aerul serilor de vară. În timpul zilei, florile sale sub formă de stea stau adesea strânse și modeste, însă pe măsură ce Soarele apune și primele raze de Lună ating pământul, floarea își deschide petalele, eliberând o aromă divină.</p>
@@ -154,7 +154,7 @@ export const plantData = [
     scientific_title: "Campanula medium",
     site_slug: "campanula",
     categories: ["planta", "magia-apei", "armonie", "zane"],
-    type: "planta",
+    type: "plante",
     image: "https://res-console.cloudinary.com/umzibuwc/thumbnails/v1/image/upload/v1786804048/Y2FtcGFudWxh/drilldown",
     text: `
       <p>Campanula, cunoscută în folclor și sub numele de „Clopoței”, este o plantă fermecătoare ce împodobește pajiștile montane și stâncăriile cu cupe delicate de culoare violet, albastru, roz sau alb. Forma desăvârșită a florilor sale amintește de mici clopote sacre făurite de natura însăși.</p>

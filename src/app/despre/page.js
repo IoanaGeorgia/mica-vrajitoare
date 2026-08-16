@@ -1,6 +1,4 @@
-'use client';
-
-export default function About() {
+export default function Despre() {
   return (
     <div className="page">
       <div className="page-header">
@@ -8,8 +6,8 @@ export default function About() {
         <p>Informații generale</p>
       </div>
 
-      <div className="cards-container">
-        <p>
+      <div className="cards-container about">
+        <p className="highlight">
           Această carte este menită să vină în ajutorul vrăjitoarelor și vrăjitorilor
           începători, precum și altor ființe magice. Este de datoria noastră să
           cunoaștem și să protejăm lumea din jurul nostru. Indiferent dacă trăim în
@@ -17,7 +15,7 @@ export default function About() {
           trebuie tratate cu respect și prețuite.
         </p>
 
-        <p>
+        <p className="highlight">
           Conținutul acestei cărți a fost creat și revizuit de vrăjitori și vrăjitoare
           briliante. Mai jos sunt câțiva dintre cei mai notabili colaboratori.
         </p>

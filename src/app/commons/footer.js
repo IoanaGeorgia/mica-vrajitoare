@@ -1,5 +1,3 @@
-
-
 import styles from "./commons.module.css";
 
 export default function Footer() {
