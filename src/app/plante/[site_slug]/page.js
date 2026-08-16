@@ -1,7 +1,7 @@
 'use client'
 
 import { useParams, notFound } from "next/navigation";
-import GalleryItem from "../../galleryItem/page";
+import GalleryItem from "../../../components/galleryItem/galleryItem";
 import { plantData } from "../../mockData";
 
 export default function PlantPage() {

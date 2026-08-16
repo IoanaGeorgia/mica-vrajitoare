@@ -1,6 +1,6 @@
 'use client'
 import { Suspense } from "react";
-import Gallery from "../gallery/page";
+import Gallery from "../../components/gallery/gallery";
 import { plantData, animalData } from "../mockData";
 import { useEffect, useState } from "react";
 let allItems = [...plantData, ...animalData]
@@ -35,7 +35,6 @@ export default function SemndeCartePage() {
 
   return (
     <Suspense fallback={<div className="no-data">Se încarca...</div>}>
-
       <Gallery
         pageDesc={pageDesc}
         itemData={finalItems}

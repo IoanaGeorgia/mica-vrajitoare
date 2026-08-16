@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function Home() {
 
   return (
-    <div className="page">
+    <div className="page home">
 
       <div className={styles.hero}>
         <p className="subtitle">Fauna si flora</p>

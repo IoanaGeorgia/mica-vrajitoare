@@ -1,6 +1,5 @@
 
 'use client'
-import { notFound, useParams } from "next/navigation";
 import styles from "./galleryComponent.module.css";
 import Link from "next/link";
 import { useState, useEffect } from "react";

@@ -1,7 +1,7 @@
 import { Cinzel_Decorative, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
-import Footer from "./commons/footer";
-import Header from "./commons/header";
+import Footer from "../components/commons/footer";
+import Header from "../components/commons/header";
 
 
 const cinzelDecorative = Cinzel_Decorative({

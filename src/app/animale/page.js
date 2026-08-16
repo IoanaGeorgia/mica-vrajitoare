@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import Gallery from "../gallery/page";
+import Gallery from "../../components/gallery/gallery";
 import { animalData } from "../mockData";
 
 export default function AnimalePage() {

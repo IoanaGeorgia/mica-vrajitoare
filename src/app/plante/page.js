@@ -1,4 +1,4 @@
-import Gallery from "../gallery/page";
+import Gallery from "../../components/gallery/gallery";
 import { plantData } from "../mockData";
 import { Suspense } from "react";
 
