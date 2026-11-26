@@ -1,13 +1,27 @@
 'use client';
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation"; 
+import { useSearchParams } from "next/navigation";
 import styles from "./gallery.module.css";
 import Link from "next/link";
 
+function getName(value) {
+  if (!value) return "";
+  if (typeof value === "string") return value;
+  return value.title || "";
+}
+
+function getImageSrc(image) {
+  if (!image) return "/coada-randunicii.webp";
+  if (image.startsWith("/") || image.startsWith("http")) {
+    return image;
+  }
+  return `/${encodeURI(image)}`;
+}
+
 export default function Gallery({ itemData = [], pageDesc }) {
   const searchParams = useSearchParams();
-  const initialCategory = searchParams.get("search") || ""; 
+  const initialCategory = searchParams.get("search") || "";
 
   const [searchTerm, setSearchTerm] = useState(initialCategory);
   const [debouncedSearch, setDebouncedSearch] = useState(initialCategory);
@@ -39,7 +53,7 @@ export default function Gallery({ itemData = [], pageDesc }) {
 
     const matchesTitle = item.title?.toLowerCase().includes(normalizedQuery);
     const matchesCategory = item.categories?.some((category) =>
-      category.toLowerCase().includes(normalizedQuery)
+      getName(category).toLowerCase().includes(normalizedQuery)
     );
 
     return matchesTitle || matchesCategory;
@@ -72,32 +86,45 @@ export default function Gallery({ itemData = [], pageDesc }) {
             </div>
           ) : filteredItems.length > 0 ? (
             <div className="cards-container">
-              {filteredItems.map((item) => (
-                <div className="card item-card column" key={item.scientific_title}>
-                  <div className="card-image">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      width={400}
-                      height={300}
-                    />
+              {filteredItems.map((item, idx) => {
+                const typeSlug = getName(item.type);
+                const imgSrc = getImageSrc(item.image);
+
+                return (
+                  <div
+                    className="card item-card column"
+                    key={item._id || item.site_slug || item.scientific_title || idx}
+                  >
+                    <div className="card-image">
+                      <img
+                        src={imgSrc}
+                        alt={item.title}
+                        width={400}
+                        height={300}
+                      />
+                    </div>
+                    <Link href={`/${typeSlug}/${item.site_slug}`} className="card-title">
+                      {item.title}
+                    </Link>
+                    <div className="tags">
+                      {item.categories?.slice(0, 3).map((tag, index) => {
+                        const tagLabel = getName(tag);
+                        if (!tagLabel) return null;
+
+                        return (
+                          <Link
+                            href={`/cautare?search=${encodeURIComponent(tagLabel)}`}
+                            className="link-default"
+                            key={tag?._id || index}
+                          >
+                            {tagLabel}
+                          </Link>
+                        );
+                      })}
+                    </div>
                   </div>
-                  <Link href={`/${item.type}/${item.site_slug}`} className="card-title">
-                    {item.title}
-                  </Link>
-                  <div className="tags">
-                    {item.categories?.slice(0,3).map((tag, index) => (
-                      <Link 
-                        href={`/cautare?search=${encodeURIComponent(tag)}`} 
-                        className="link-default" 
-                        key={index}
-                      >
-                        {tag}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           ) : (
             <div className="no-data">Niciun rezultat gasit pentru "{debouncedSearch}"</div>

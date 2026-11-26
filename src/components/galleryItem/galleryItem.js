@@ -1,27 +1,38 @@
-
 'use client'
 import styles from "./galleryComponent.module.css";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-export default function GalleryItem({item}) {
+function getName(value) {
+  if (!value) return "";
+  if (typeof value === "string") return value;
+  return value.title || "";
+}
 
+function getImageSrc(image) {
+  if (!image) return "/coada-randunicii.webp";
+  if (image.startsWith("/") || image.startsWith("http")) {
+    return image;
+  }
+  return `/${encodeURI(image)}`;
+}
+
+export default function GalleryItem({ item }) {
   const [isBookmark, setIsBookmark] = useState(false);
 
   if (!item) return null;
 
-useEffect(() => {
+  useEffect(() => {
+    let isBook = localStorage.getItem("bookMarkList");
 
-  let isBook = localStorage.getItem("bookMarkList");
-  
-  if (isBook && item?.site_slug) {
-    let isBookList = JSON.parse(isBook);
-    const exists = isBookList.includes(item.site_slug);
-    setIsBookmark(exists); 
-  } else {
-    setIsBookmark(false);
-  }
-}, [item?.site_slug]);
+    if (isBook && item?.site_slug) {
+      let isBookList = JSON.parse(isBook);
+      const exists = isBookList.includes(item.site_slug);
+      setIsBookmark(exists);
+    } else {
+      setIsBookmark(false);
+    }
+  }, [item?.site_slug]);
 
   const bookmarkPage = () => {
     const saved = localStorage.getItem("bookMarkList");
@@ -39,25 +50,33 @@ useEffect(() => {
     localStorage.setItem("bookMarkList", JSON.stringify(isBookList));
   };
 
+  const typeLabel = getName(item.type);
+  const imgSrc = getImageSrc(item.image);
+  const categoryNames = item.categories?.map(getName).filter(Boolean) || [];
+
   return (
     <main className={`${styles.itemPage} page item-page`}>
-
       <title>{item.title}</title>
-      <meta name="description" content={JSON.stringify(item.categories)} />
+      <meta name="description" content={JSON.stringify(categoryNames)} />
       <div className="page-header">
         <h2 className="subtitle">{item.title}</h2>
-        <p>{item.type}</p>
-
+        <p>{typeLabel}</p>
       </div>
 
       <div className="bookmark-wrapper">
-        <button title="Bookmark this page" onClick={() => bookmarkPage()} aria-label="Bookmark this page">{isBookmark ? "⛊" : "⛉"}</button>
+        <button
+          title="Bookmark this page"
+          onClick={() => bookmarkPage()}
+          aria-label="Bookmark this page"
+        >
+          {isBookmark ? "⛊" : "⛉"}
+        </button>
       </div>
 
       <div className="content">
         <div className="card item-card card-image">
           <img
-            src={item.image}
+            src={imgSrc}
             alt={item.title}
             width={400}
             height={300}
@@ -70,10 +89,15 @@ useEffect(() => {
         />
 
         <div className="tags">
-          {item.categories?.map((tag, index) => (
-            <Link href={`/cautare?search=${encodeURIComponent(tag)}`} className="btn-default" key={index}>{tag}</Link>
+          {categoryNames.map((tag, index) => (
+            <Link
+              href={`/cautare?search=${encodeURIComponent(tag)}`}
+              className="btn-default"
+              key={item.categories?.[index]?._id || index}
+            >
+              {tag}
+            </Link>
           ))}
-
         </div>
       </div>
     </main>

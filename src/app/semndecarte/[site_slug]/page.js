@@ -2,7 +2,7 @@
 
 import { useParams, notFound } from "next/navigation";
 import GalleryItem from "../../../components/galleryItem/galleryItem";
-import { plantData } from "../../mockData";
+import { plantData } from "../../../lib/mockData";
 
 export default function PlantPage() {
   const params = useParams();
